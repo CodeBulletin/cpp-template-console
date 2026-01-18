@@ -65,18 +65,18 @@
         "from": "linking",
         "map": {
           "Static": "OFF",
-          "Dynamic": "ON",
+          "Dynamic": "ON"
         },
       },
 
       "AUTHOR": {
-        "from": "author",
-      }
+        "from": "author"
+      },
 
       "VERSION": {
-        "from": "version"
+        "from": "version",
         "regex": {
-          "code": "[^a-zA-Z0-9\.]+"
+          "code": "[^a-zA-Z0-9\.]+",
           "replaceWith": "_"
         }
       }
