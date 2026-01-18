@@ -1,0 +1,28 @@
+[
+  {
+    "label": "Run (Debug)",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "sourceLanguages": ["c++"],
+    "program": "build/debug/@NAME@",
+    "args": [],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "build": {
+      "command": "make",
+      "args": ["PRESET=debug", "build"],
+    },
+  },
+  {
+    "label": "Run (Release)",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "sourceLanguages": ["c++"],
+    "program": "build/release/@NAME@",
+    "args": [],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "build": {
+      "command": "make",
+      "args": ["PRESET=release", "build"],
+    },
+  },
+]

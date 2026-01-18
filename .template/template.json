@@ -1,0 +1,51 @@
+{
+  "vars": ["NAME", "OTHERNAME", "PACKAGES", "PKGIMPORT", "PKGLINK"],
+  "inputs": {
+    "include": {
+      "display": "Libraries To Include",
+      "type": "MultiSelect",
+      "options": ["tui", "curl", "cli", "logging"],
+      "default": []
+    },
+    "linking": {
+      "display": "Linking Method",
+      "type": "Select",
+      "options": ["Static", "Dynamic"],
+      "default": "Dynamic"
+    },
+    "derive": {
+      "PACKAGES": {
+        "from": "include",
+        "map": {
+          "tui": "ftxui",
+          "curl": "curlcpp, nlohmann-json",
+          "cli": "cli11",
+          "logging": "fmt, spdlog"
+        },
+        "join": ", "
+      },
+
+      "PKGIMPORT": {
+        "from": "include",
+        "map": {
+          "tui": "find_package(fxtui CONFIG REQUIRED)",
+          "curl": "find_package(nlohmann_json CONFIG REQUIRED)\nfind_package(curlcpp CONFIG REQUIRED)",
+          "cli": "find_package(CLI11 CONFIG REQUIRED)",
+          "logging": "find_package(fmt CONFIG REQUIRED)\nfind_package(spdlog CONFIG REQUIRED)"
+        },
+        "join": "\n"
+      },
+
+      "PKGLINK": {
+        "from": "include",
+        "map": {
+          "tui": "ftxui::screen ftxui::dom ftxui::component",
+          "curl": "nlohmann_json::nlohmann_json curlcpp::curlcpp",
+          "cli": "CLI11::CLI11",
+          "logging": "fmt::fmt spdlog::spdlog"
+        },
+        "join": " "
+      }
+    }
+  }
+}

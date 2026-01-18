@@ -1,7 +1,16 @@
 # ---- Config ----
-PRESET       ?= default
-BUILD_DIR    ?= build
-TARGET       ?= app   # change if your executable has a different name
+PRESET       ?= debug
+
+ifeq ($(PRESET),debug)
+	BUILD_DIR := build/debug
+else ifeq ($(PRESET),release)
+	BUILD_DIR := build/release
+else
+	BUILD_DIR := build/$(PRESET)
+endif
+
+TARGET       ?= @NAME@
+ARGS		 ?=
 
 # ---- Phony targets ----
 .PHONY: preset build run clean rebuild check
@@ -13,11 +22,15 @@ build:
 
 # Equivalent to: cargo run
 run: build
-	./$(BUILD_DIR)/$(TARGET)
+	clear
+	ln -sf $(BUILD_DIR)/compile_commands.json compile_commands.json
+	./$(BUILD_DIR)/$(TARGET) $(ARGS)
 
 # Equivalent to: cargo clean
 clean:
 	rm -rf $(BUILD_DIR)
+	rm -rf .cache
+	rm -rf compile_commands.json
 
 # Equivalent to: cargo build --force
 rebuild: clean build

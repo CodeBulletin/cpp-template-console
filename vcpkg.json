@@ -1,5 +1,5 @@
 {
-  "name": "cpp-template-console",
+  "name": "@OTHERNAME@",
   "version": "0.1.0",
-  "dependencies": ["fmt", "spdlog"]
+  "dependencies": [@PACKAGES@]
 }
