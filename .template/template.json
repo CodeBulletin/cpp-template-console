@@ -42,7 +42,7 @@
         "map": {
           "tui": "\"ftxui\"",
           "curl": "\"curlcpp\", \"nlohmann-json\"",
-          "cli": "\"CLI11\"",
+          "cli": "\"cli11\"",
           "logging": "\"fmt\", \"spdlog\""
         },
         "join": ", "
