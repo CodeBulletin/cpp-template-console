@@ -24,6 +24,7 @@ build:
 run: build
 	clear
 	ln -sf $(BUILD_DIR)/compile_commands.json compile_commands.json
+	-DBUILD_SHARED_LIBS=@LINKER@
 	./$(BUILD_DIR)/$(TARGET) $(ARGS)
 
 # Equivalent to: cargo clean

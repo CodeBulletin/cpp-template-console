@@ -1,5 +1,5 @@
 {
-  "vars": ["NAME", "OTHERNAME", "PACKAGES", "PKGIMPORT", "PKGLINK"],
+  "vars": ["NAME", "OTHERNAME", "PACKAGES", "PKGIMPORT", "PKGLINK", "LINKER", "VERSION", "AUTHOR"],
   "inputs": {
     "include": {
       "display": "Libraries To Include",
@@ -7,20 +7,34 @@
       "options": ["tui", "curl", "cli", "logging"],
       "default": []
     },
+
     "linking": {
       "display": "Linking Method",
       "type": "Select",
       "options": ["Static", "Dynamic"],
       "default": "Dynamic"
     },
+
+    "author": {
+      "display": "Author Name",
+      "type": "String",
+      "default": ""
+    }
+
+    "version": {
+      "display": "Verison",
+      "type": "String",
+      "default": ""
+    }
+
     "derive": {
       "PACKAGES": {
         "from": "include",
         "map": {
-          "tui": "ftxui",
-          "curl": "curlcpp, nlohmann-json",
-          "cli": "cli11",
-          "logging": "fmt, spdlog"
+          "tui": "\"ftxui\"",
+          "curl": "\"curlcpp\", \"nlohmann-json\"",
+          "cli": "\"cli11v",
+          "logging": "\"fmt\", \"spdlog\""
         },
         "join": ", "
       },
@@ -45,6 +59,26 @@
           "logging": "fmt::fmt spdlog::spdlog"
         },
         "join": " "
+      }
+
+      "LINKER": {
+        "from": "linking",
+        "map": {
+          "Static": "OFF",
+          "Dynamic": "ON",
+        },
+      },
+
+      "AUTHOR": {
+        "from": "author",
+      }
+
+      "VERSION": {
+        "from": "version"
+        "regex": {
+          "code": "[^a-zA-Z0-9\.]+"
+          "replaceWith": "_"
+        }
       }
     }
   }
