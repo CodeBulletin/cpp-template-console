@@ -1,5 +1,14 @@
 {
-  "vars": ["NAME", "OTHERNAME", "PACKAGES", "PKGIMPORT", "PKGLINK", "LINKER", "VERSION", "AUTHOR"],
+  "vars": [
+    "NAME",
+    "OTHERNAME",
+    "PACKAGES",
+    "PKGIMPORT",
+    "PKGLINK",
+    "LINKER",
+    "VERSION",
+    "AUTHOR"
+  ],
   "inputs": {
     "include": {
       "display": "Libraries To Include",
@@ -19,13 +28,13 @@
       "display": "Author Name",
       "type": "String",
       "default": ""
-    }
+    },
 
     "version": {
-      "display": "Verison",
+      "display": "Version",
       "type": "String",
       "default": ""
-    }
+    },
 
     "derive": {
       "PACKAGES": {
@@ -33,7 +42,7 @@
         "map": {
           "tui": "\"ftxui\"",
           "curl": "\"curlcpp\", \"nlohmann-json\"",
-          "cli": "\"cli11v",
+          "cli": "\"CLI11\"",
           "logging": "\"fmt\", \"spdlog\""
         },
         "join": ", "
@@ -42,7 +51,7 @@
       "PKGIMPORT": {
         "from": "include",
         "map": {
-          "tui": "find_package(fxtui CONFIG REQUIRED)",
+          "tui": "find_package(ftxui CONFIG REQUIRED)",
           "curl": "find_package(nlohmann_json CONFIG REQUIRED)\nfind_package(curlcpp CONFIG REQUIRED)",
           "cli": "find_package(CLI11 CONFIG REQUIRED)",
           "logging": "find_package(fmt CONFIG REQUIRED)\nfind_package(spdlog CONFIG REQUIRED)"
@@ -59,14 +68,14 @@
           "logging": "fmt::fmt spdlog::spdlog"
         },
         "join": " "
-      }
+      },
 
       "LINKER": {
         "from": "linking",
         "map": {
           "Static": "OFF",
           "Dynamic": "ON"
-        },
+        }
       },
 
       "AUTHOR": {
