@@ -85,7 +85,7 @@
       "VERSION": {
         "from": "version",
         "regex": {
-          "code": "[^a-zA-Z0-9\.]+",
+          "code": "[^a-zA-Z0-9\\.]+",
           "replaceWith": "_"
         }
       }
