@@ -1,13 +1,8 @@
 # ---- Config ----
 PRESET       ?= debug
 
-ifeq ($(PRESET),debug)
-	BUILD_DIR := build/debug
-else ifeq ($(PRESET),release)
-	BUILD_DIR := build/release
-else
-	BUILD_DIR := build/$(PRESET)
-endif
+OUT_DIR		 ?= build
+BUILD_DIR    := $(OUT_DIR)/$(PRESET)
 
 TARGET       ?= @NAME@
 ARGS		 ?=
@@ -29,7 +24,7 @@ run: build
 
 # Equivalent to: cargo clean
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -rf $(OUT_DIR)
 	rm -rf .cache
 	rm -rf compile_commands.json
 
@@ -40,3 +35,9 @@ rebuild: clean build
 check:
 	cmake --preset $(PRESET)
 	cmake --build $(BUILD_DIR) --target $(TARGET) -- -n
+
+install: build
+	cmake --install $(BUILD_DIR)
+
+uninstall:
+	cmake --build $(BUILD_DIR) --target uninstall
