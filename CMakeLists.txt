@@ -23,7 +23,12 @@ configure_file(
 target_link_libraries(
     @NAME@ PRIVATE
         @PKGLINK@
-        ${CMAKE_BINARY_DIR}
+)
+
+
+target_include_directories(
+    @NAME@ PRIVATE
+        ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 # -------------------------
