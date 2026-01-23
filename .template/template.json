@@ -86,7 +86,7 @@
       "PKGINCLUDE": {
         "from": "include",
         "map": {
-          "tui": "#include <ftxui/screen/screen.hpp>\n#include <ftxui/dom/elements.hpp>\n#include <ftxui/component/component.hpp>",
+          "tui": "#include <ftxui/component/component.hpp>\n#include <ftxui/component/screen_interactive.hpp>",
           "curl": "#include <curlcpp/curl_easy.h>\n#include <curlcpp/curl_multi.h>",
           "cli": "#include <CLI/CLI.hpp>",
           "logging": "#include <fmt/format.h>\n#include <spdlog/spdlog.h>"
@@ -123,5 +123,5 @@
     "git add .",
     "git commit -m \"Initial commit from template\""
   ],
-  "postCreateNotes": "Your C++ console application template has been created successfully!\n\nTo get started:\n1. Navigate to your project directory: `cd @NAME@`\n2. Run: make run\n\nHappy coding!"
+  "postCreateNotes": "Your C++ console application template has been created successfully!"
 }
