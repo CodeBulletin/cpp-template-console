@@ -5,6 +5,7 @@
     "PACKAGES",
     "PKGIMPORT",
     "PKGINCLUDE",
+    "CODEEXAMPLE",
     "PKGLINK",
     "LINKER",
     "VERSION",
@@ -71,6 +72,17 @@
         "join": " "
       },
 
+      "CODEEXAMPLE": {
+        "from": "include",
+        "map": {
+          "tui": "    // Example code for FTXUI\n    auto screen = ftxui::ScreenInteractive::TerminalOutput();\n    auto element = ftxui::text(\"Hello, FTXUI!\");\n    screen.Loop(element);",
+          "curl": "    // Example code for curlcpp\n    curlcpp::CurlEasy easy;\n    easy.setOpt<CURLOPT_URL>(\"https://www.example.com\");\n    easy.perform();",
+          "cli": "    // Example code for CLI11\n    CLI::App app{\"My App\"};\n    std::string name;\n    app.add_option(\"-n,--name\", name, \"Your name\");\n    CLI11_PARSE(app, argc, argv);",
+          "logging": "    // Example code for spdlog and fmt\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n    fmt::print(\"This is a formatted string: {}\\n\", 42);"
+        },
+        "join": "\n\n"
+      },
+
       "PKGINCLUDE": {
         "from": "include",
         "map": {
@@ -103,5 +115,12 @@
       }
     }
   },
-  "filesToExclude": []
+  "filesToExclude": [],
+  "postCreateCommands": [
+    "rm -rf .template",
+    "git init",
+    "git add .",
+    "git commit -m \"Initial commit from template\""
+  ],
+  "postCreateNotes": "Your C++ console application template has been created successfully!\n\nTo get started:\n1. Navigate to your project directory: `cd @NAME@`\n2. Run: make run\n\nHappy coding!"
 }
