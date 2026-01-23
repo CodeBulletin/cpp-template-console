@@ -41,6 +41,10 @@ install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${PROJECT_INSTALL_DIR}
 )
 
+install(DIRECTORY include/
+    DESTINATION ${PROJECT_INSTALL_DIR}
+)
+
 # -------------------------
 # Uninstall target (CORRECT)
 # -------------------------
