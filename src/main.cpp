@@ -1,7 +1,12 @@
-#include <fmt/core.h>
-#include <spdlog/spdlog.h>
+#include <version.h>
+#include <iostream>
+
+@PKGINCLUDE@
 
 int main() {
-    fmt::print("Hello from fmt!\n");
-    spdlog::info("Hello from spdlog!");
+    std::cout << "Project Name: " << PROJECT_NAME << std::endl;
+    std::cout << "Version: " << PROJECT_VERSION << std::endl;
+    std::cout << "Author: " << PROJECT_AUTHOR << std::endl;
+
+    @CODEEXAMPLE@
 }

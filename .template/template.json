@@ -4,6 +4,7 @@
     "OTHERNAME",
     "PACKAGES",
     "PKGIMPORT",
+    "PKGINCLUDE",
     "PKGLINK",
     "LINKER",
     "VERSION",
@@ -68,6 +69,17 @@
           "logging": "fmt::fmt spdlog::spdlog"
         },
         "join": " "
+      },
+
+      "PKGINCLUDE": {
+        "from": "include",
+        "map": {
+          "tui": "#include <ftxui/screen/screen.hpp>\n#include <ftxui/dom/elements.hpp>\n#include <ftxui/component/component.hpp>",
+          "curl": "#include <curlcpp/curl_easy.h>\n#include <curlcpp/curl_multi.h>",
+          "cli": "#include <CLI/CLI.hpp>",
+          "logging": "#include <fmt/format.h>\n#include <spdlog/spdlog.h>"
+        },
+        "join": "\n"
       },
 
       "LINKER": {
