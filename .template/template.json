@@ -76,7 +76,7 @@
         "from": "include",
         "map": {
           "tui": "    // Example code for tui\n    auto screen = ftxui::ScreenInteractive::TerminalOutput();\n\n    auto app = ftxui::Renderer([] {\n        return ftxui::text(\"Hello, FTXUI!\");\n    });\n\n    screen.PostEvent(ftxui::Event::Escape);\n    screen.Loop(app);",
-          "curl": "    // Example code for curlcpp\n    auto easy = curlcpp::CurlEasy();\n\n    easy.setOpt<CURLOPT_URL>(\"https://www.example.com\");\n    easy.setOpt<CURLOPT_FOLLOWLOCATION>(1L);\n\n    easy.perform();",
+          "curl": "    auto easy = curl::curl_easy();\n\n    easy.add<CURLOPT_URL>(\"https://www.example.com\");\n    easy.add<CURLOPT_FOLLOWLOCATION>(1L);\n\n    easy.perform();",
           "cli": "    // Example code for CLI11\n    CLI::App app{\"My App\"};\n    std::string name;\n    app.add_option(\"-n,--name\", name, \"Your name\");\n    CLI11_PARSE(app, argc, argv);",
           "logging": "    // Example code for spdlog and fmt\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n    fmt::print(\"This is a formatted string: {}\\n\", 42);"
         },
