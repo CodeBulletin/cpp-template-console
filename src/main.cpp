@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
     std::cout << "Version: " << PROJECT_VERSION << std::endl;
     std::cout << "Author: " << PROJECT_AUTHOR << std::endl;
 
-    @CODEEXAMPLE@
+@CODEEXAMPLE@
 
     return 0;
 }

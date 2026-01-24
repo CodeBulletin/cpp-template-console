@@ -62,7 +62,7 @@
           "cli11": "find_package(CLI11 CONFIG REQUIRED)",
           "spdlog": "find_package(spdlog CONFIG REQUIRED)",
           "fmt": "find_package(fmt CONFIG REQUIRED)",
-          "sqlite3": "find_package(SQLite3 CONFIG REQUIRED)"
+          "sqlite3": "find_package(unofficial-sqlite3 CONFIG REQUIRED)"
         },
         "join": "\n"
       },
@@ -76,7 +76,7 @@
           "cli11": "CLI11::CLI11",
           "spdlog": "spdlog::spdlog",
           "fmt": "fmt::fmt",
-          "sqlite3": "SQLite::SQLite3"
+          "sqlite3": "unofficial::sqlite3::sqlite3"
         },
         "join": " "
       },
@@ -90,7 +90,7 @@
           "spdlog": "    // Example code for spdlog\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n",
           "nlohmann_json": "    // Example code for nlohmann_json\n    nlohmann::json j;\n    j[\"name\"] = \"John Doe\";\n    j[\"age\"] = 30;\n    std::cout << j.dump(4) << std::endl;",
           "fmt": "    // Example code for fmt\n    fmt::print(\"Hello, {}! The answer is {}.\\n\", \"fmt\", 42);",
-          "sqlite3": "    // Example code for SQLiteCpp\n    SQLite::Database db(\"example.db\", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);\n    SQLite::Statement query(db, \"CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, value TEXT);\");\n    query.exec();"
+          "sqlite3": "    // Example code for sqlite3\n    std::cout << \"sqlite3 Version: \" << sqlite3_libversion() << std::endl;"
         },
         "join": "\n\n"
       },
@@ -104,7 +104,7 @@
           "cli11": "#include <CLI/CLI.hpp>",
           "spdlog": "#include <spdlog/spdlog.h>",
           "fmt": "#include <fmt/core.h>",
-          "sqlite3": "#include <SQLiteCpp/SQLiteCpp.h>"
+          "sqlite3": "#include <sqlite3.h>"
         },
         "join": "\n"
       },
