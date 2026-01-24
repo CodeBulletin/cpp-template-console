@@ -15,7 +15,18 @@
     "include": {
       "display": "Libraries To Include",
       "type": "MultiSelect",
-      "options": ["ftxui", "curlcpp", "nlohmann_json", "cli11", "spdlog", "fmt", "sqlite3"],
+      "options": [
+        "ftxui",
+        "curlcpp",
+        "nlohmann_json",
+        "cli11",
+        "spdlog",
+        "fmt",
+        "sqlite3",
+        "inih",
+        "yaml-cpp",
+        "toml11"
+      ],
       "default": []
     },
 
@@ -48,7 +59,10 @@
           "cli11": "\"cli11\"",
           "spdlog": "\"spdlog\"",
           "fmt": "\"fmt\"",
-          "sqlite3": "\"sqlite3\""
+          "sqlite3": "\"sqlite3\"",
+          "inih": "\"inih\"",
+          "yaml-cpp": "\"yaml-cpp\"",
+          "toml11": "\"toml11\""
         },
         "join": ", "
       },
@@ -62,7 +76,10 @@
           "cli11": "find_package(CLI11 CONFIG REQUIRED)",
           "spdlog": "find_package(spdlog CONFIG REQUIRED)",
           "fmt": "find_package(fmt CONFIG REQUIRED)",
-          "sqlite3": "find_package(unofficial-sqlite3 CONFIG REQUIRED)"
+          "sqlite3": "find_package(unofficial-sqlite3 CONFIG REQUIRED)",
+          "inih": "find_package(unofficial-inih CONFIG REQUIRED)",
+          "yaml-cpp": "find_package(yaml-cpp CONFIG REQUIRED)",
+          "toml11": "find_package(toml11 CONFIG REQUIRED)"
         },
         "join": "\n"
       },
@@ -76,7 +93,10 @@
           "cli11": "CLI11::CLI11",
           "spdlog": "spdlog::spdlog",
           "fmt": "fmt::fmt",
-          "sqlite3": "unofficial::sqlite3::sqlite3"
+          "sqlite3": "unofficial::sqlite3::sqlite3",
+          "inih": "unofficial::inih::inireader",
+          "yaml-cpp": "yaml-cpp",
+          "toml11": "toml11::toml11"
         },
         "join": " "
       },
@@ -90,7 +110,10 @@
           "spdlog": "    // Example code for spdlog\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n",
           "nlohmann_json": "    // Example code for nlohmann_json\n    nlohmann::json j;\n    j[\"name\"] = \"John Doe\";\n    j[\"age\"] = 30;\n    std::cout << j.dump(4) << std::endl;",
           "fmt": "    // Example code for fmt\n    fmt::print(\"Hello, {}! The answer is {}.\\n\", \"fmt\", 42);",
-          "sqlite3": "    // Example code for sqlite3\n    std::cout << \"sqlite3 Version: \" << sqlite3_libversion() << std::endl;"
+          "sqlite3": "    // Example code for sqlite3\n    std::cout << \"sqlite3 Version: \" << sqlite3_libversion() << std::endl;",
+          "inih": "    // Example code for inih\n    INIReader reader(\"config.ini\");\n    if (reader.ParseError() < 0) {\n        std::cout << \"Can't load 'config.ini'\\n\";\n        return 1;\n    }\n    std::string value = reader.Get(\"section\", \"key\", \"default_value\");\n    std::cout << \"Value: \" << value << std::endl;",
+          "yaml-cpp": "    // Example code for yaml-cpp\n    YAML::Node config = YAML::LoadFile(\"config.yaml\");\n    std::string value = config[\"key\"].as<std::string>();\n    std::cout << \"Value: \" << value << std::endl;",
+          "toml11": "    // Example code for toml11\n    auto data = toml::parse(\"config.toml\");\n    std::string value = toml::get<std::string>(data.at(\"key\"));\n    std::cout << \"Value: \" << value << std::endl;"
         },
         "join": "\n\n"
       },
@@ -104,7 +127,10 @@
           "cli11": "#include <CLI/CLI.hpp>",
           "spdlog": "#include <spdlog/spdlog.h>",
           "fmt": "#include <fmt/core.h>",
-          "sqlite3": "#include <sqlite3.h>"
+          "sqlite3": "#include <sqlite3.h>",
+          "inih": "#include <INIReader.h>",
+          "yaml-cpp": "#include <yaml-cpp/yaml.h>",
+          "toml11": "#include <toml.hpp>"
         },
         "join": "\n"
       },
