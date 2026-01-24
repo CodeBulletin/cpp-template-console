@@ -15,7 +15,7 @@
     "include": {
       "display": "Libraries To Include",
       "type": "MultiSelect",
-      "options": ["ftxui", "curlcpp", "nlohmann_json", "cli11", "spdlog", "fmt"],
+      "options": ["ftxui", "curlcpp", "nlohmann_json", "cli11", "spdlog", "fmt", "sqlite3"],
       "default": []
     },
 
@@ -47,7 +47,8 @@
           "nlohmann_json": "\"nlohmann-json\"",
           "cli11": "\"cli11\"",
           "spdlog": "\"spdlog\"",
-          "fmt": "\"fmt\""
+          "fmt": "\"fmt\"",
+          "sqlite3": "\"sqlite3\""
         },
         "join": ", "
       },
@@ -60,7 +61,8 @@
           "nlohmann_json": "find_package(nlohmann_json CONFIG REQUIRED)",
           "cli11": "find_package(CLI11 CONFIG REQUIRED)",
           "spdlog": "find_package(spdlog CONFIG REQUIRED)",
-          "fmt": "find_package(fmt CONFIG REQUIRED)"
+          "fmt": "find_package(fmt CONFIG REQUIRED)",
+          "sqlite3": "find_package(SQLite3 CONFIG REQUIRED)"
         },
         "join": "\n"
       },
@@ -73,7 +75,8 @@
           "nlohmann_json": "nlohmann_json::nlohmann_json",
           "cli11": "CLI11::CLI11",
           "spdlog": "spdlog::spdlog",
-          "fmt": "fmt::fmt"
+          "fmt": "fmt::fmt",
+          "sqlite3": "SQLite::SQLite3"
         },
         "join": " "
       },
@@ -86,7 +89,8 @@
           "cli11": "    // Example code for CLI11\n    CLI::App cli{\"My App\"};\n    std::string name;\n    cli.add_option(\"-n,--name\", name, \"Your name\");\n    CLI11_PARSE(cli, argc, argv);",
           "spdlog": "    // Example code for spdlog\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n",
           "nlohmann_json": "    // Example code for nlohmann_json\n    nlohmann::json j;\n    j[\"name\"] = \"John Doe\";\n    j[\"age\"] = 30;\n    std::cout << j.dump(4) << std::endl;",
-          "fmt": "    // Example code for fmt\n    fmt::print(\"Hello, {}! The answer is {}.\\n\", \"fmt\", 42);"
+          "fmt": "    // Example code for fmt\n    fmt::print(\"Hello, {}! The answer is {}.\\n\", \"fmt\", 42);",
+          "sqlite3": "    // Example code for SQLiteCpp\n    SQLite::Database db(\"example.db\", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);\n    SQLite::Statement query(db, \"CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY, value TEXT);\");\n    query.exec();"
         },
         "join": "\n\n"
       },
@@ -99,7 +103,8 @@
           "nlohmann_json": "#include <nlohmann/json.hpp>",
           "cli11": "#include <CLI/CLI.hpp>",
           "spdlog": "#include <spdlog/spdlog.h>",
-          "fmt": "#include <fmt/core.h>"
+          "fmt": "#include <fmt/core.h>",
+          "sqlite3": "#include <SQLiteCpp/SQLiteCpp.h>"
         },
         "join": "\n"
       },
