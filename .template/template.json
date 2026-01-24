@@ -15,7 +15,7 @@
     "include": {
       "display": "Libraries To Include",
       "type": "MultiSelect",
-      "options": ["tui", "curl", "cli", "logging"],
+      "options": ["ftxui", "curlcpp", "nlohmann_json", "cli11", "spdlog", "fmt"],
       "default": []
     },
 
@@ -42,10 +42,12 @@
       "PACKAGES": {
         "from": "include",
         "map": {
-          "tui": "\"ftxui\"",
-          "curl": "\"curlcpp\", \"nlohmann-json\"",
-          "cli": "\"cli11\"",
-          "logging": "\"fmt\", \"spdlog\""
+          "ftxui": "\"ftxui\"",
+          "curlcpp": "\"curlcpp\"",
+          "nlohmann_json": "\"nlohmann-json\"",
+          "cli11": "\"cli11\"",
+          "spdlog": "\"spdlog\"",
+          "fmt": "\"fmt\""
         },
         "join": ", "
       },
@@ -53,10 +55,12 @@
       "PKGIMPORT": {
         "from": "include",
         "map": {
-          "tui": "find_package(ftxui CONFIG REQUIRED)",
-          "curl": "find_package(nlohmann_json CONFIG REQUIRED)\nfind_package(curlcpp CONFIG REQUIRED)",
-          "cli": "find_package(CLI11 CONFIG REQUIRED)",
-          "logging": "find_package(fmt CONFIG REQUIRED)\nfind_package(spdlog CONFIG REQUIRED)"
+          "ftxui": "find_package(ftxui CONFIG REQUIRED)",
+          "curlcpp": "find_package(curlcpp CONFIG REQUIRED)",
+          "nlohmann_json": "find_package(nlohmann_json CONFIG REQUIRED)",
+          "cli11": "find_package(CLI11 CONFIG REQUIRED)",
+          "spdlog": "find_package(spdlog CONFIG REQUIRED)",
+          "fmt": "find_package(fmt CONFIG REQUIRED)"
         },
         "join": "\n"
       },
@@ -64,10 +68,12 @@
       "PKGLINK": {
         "from": "include",
         "map": {
-          "tui": "ftxui::screen ftxui::dom ftxui::component",
-          "curl": "nlohmann_json::nlohmann_json curlcpp::curlcpp",
-          "cli": "CLI11::CLI11",
-          "logging": "fmt::fmt spdlog::spdlog"
+          "ftxui": "ftxui::screen ftxui::dom ftxui::component",
+          "curlcpp": "curlcpp::curlcpp",
+          "nlohmann_json": "nlohmann_json::nlohmann_json",
+          "cli11": "CLI11::CLI11",
+          "spdlog": "spdlog::spdlog",
+          "fmt": "fmt::fmt"
         },
         "join": " "
       },
@@ -75,10 +81,12 @@
       "CODEEXAMPLE": {
         "from": "include",
         "map": {
-          "tui": "    // Example code for tui\n    auto screen = ftxui::ScreenInteractive::TerminalOutput();\n\n    auto app = ftxui::Renderer([] {\n        return ftxui::text(\"Hello, FTXUI!\");\n    });\n\n    screen.PostEvent(ftxui::Event::Escape);\n    screen.Loop(app);",
-          "curl": "    auto easy = curl::curl_easy();\n\n    easy.add<CURLOPT_URL>(\"https://www.example.com\");\n    easy.add<CURLOPT_FOLLOWLOCATION>(1L);\n\n    easy.perform();",
-          "cli": "    // Example code for CLI11\n    CLI::App cli{\"My App\"};\n    std::string name;\n    cli.add_option(\"-n,--name\", name, \"Your name\");\n    CLI11_PARSE(cli, argc, argv);",
-          "logging": "    // Example code for spdlog and fmt\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n    fmt::print(\"This is a formatted string: {}\\n\", 42);"
+          "ftxui": "    // Example code for ftxui\n    auto screen = ftxui::ScreenInteractive::TerminalOutput();\n\n    auto app = ftxui::Renderer([] {\n        return ftxui::text(\"Hello, FTXUI!\");\n    });\n\n    screen.PostEvent(ftxui::Event::Escape);\n    screen.Loop(app);",
+          "curlcpp": "    auto easy = curl::curl_easy();\n\n    easy.add<CURLOPT_URL>(\"https://www.example.com\");\n    easy.add<CURLOPT_FOLLOWLOCATION>(1L);\n\n    easy.perform();",
+          "cli11": "    // Example code for CLI11\n    CLI::App cli{\"My App\"};\n    std::string name;\n    cli.add_option(\"-n,--name\", name, \"Your name\");\n    CLI11_PARSE(cli, argc, argv);",
+          "spdlog": "    // Example code for spdlog\n    spdlog::info(\"Hello, {}!\", \"spdlog\");\n",
+          "nlohmann_json": "    // Example code for nlohmann_json\n    nlohmann::json j;\n    j[\"name\"] = \"John Doe\";\n    j[\"age\"] = 30;\n    std::cout << j.dump(4) << std::endl;",
+          "fmt": "    // Example code for fmt\n    fmt::print(\"Hello, {}! The answer is {}.\\n\", \"fmt\", 42);"
         },
         "join": "\n\n"
       },
@@ -86,10 +94,12 @@
       "PKGINCLUDE": {
         "from": "include",
         "map": {
-          "tui": "#include <ftxui/component/component.hpp>\n#include <ftxui/component/screen_interactive.hpp>",
-          "curl": "#include <curlcpp/curl_easy.h>\n#include <sstream>",
-          "cli": "#include <CLI/CLI.hpp>",
-          "logging": "#include <fmt/format.h>\n#include <spdlog/spdlog.h>"
+          "ftxui": "#include <ftxui/component/component.hpp>\n#include <ftxui/component/screen_interactive.hpp>",
+          "curlcpp": "#include <curlcpp/curl_easy.h>\n#include <sstream>",
+          "nlohmann_json": "#include <nlohmann/json.hpp>",
+          "cli11": "#include <CLI/CLI.hpp>",
+          "spdlog": "#include <spdlog/spdlog.h>",
+          "fmt": "#include <fmt/core.h>"
         },
         "join": "\n"
       },
