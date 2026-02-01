@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-debug",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "PRESET=debug",
+        "build"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Build C++ with clang++ and debug symbols"
+    },
+    {
+      "label": "build-release",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "PRESET=release",
+        "build"
+      ],
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Build C++ with clang++ and optimizations"
+    }
+  ]
+}
